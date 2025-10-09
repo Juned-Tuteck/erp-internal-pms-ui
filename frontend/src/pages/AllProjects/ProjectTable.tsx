@@ -2,9 +2,10 @@ import type { Project } from '../../utils/mockData';
 
 interface ProjectTableProps {
   projects: Project[];
+  onViewProject: (project: Project) => void;
 }
 
-const ProjectTable: React.FC<ProjectTableProps> = ({ projects }) => {
+const ProjectTable: React.FC<ProjectTableProps> = ({ projects, onViewProject }) => {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'Active':
@@ -119,7 +120,10 @@ const ProjectTable: React.FC<ProjectTableProps> = ({ projects }) => {
                   </span>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <button className="text-blue-600 hover:text-blue-800 transition-colors">
+                  <button
+                    onClick={() => onViewProject(project)}
+                    className="text-blue-600 hover:text-blue-800 transition-colors"
+                  >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path
                         strokeLinecap="round"
