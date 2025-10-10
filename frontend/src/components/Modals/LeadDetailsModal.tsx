@@ -1,4 +1,4 @@
-import type { Project } from '../../utils/mockData';
+import type { Project } from '../../utils/api';
 
 interface LeadDetailsModalProps {
   project: Project | null;
@@ -37,7 +37,7 @@ const LeadDetailsModal: React.FC<LeadDetailsModalProps> = ({ project, isOpen, on
               </label>
               <input
                 type="text"
-                value={project.leadNumber}
+                value={project.lead_id}
                 readOnly
                 className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-700"
               />

@@ -1,4 +1,4 @@
-import type { Project } from '../../utils/mockData';
+import type { Project } from '../../utils/api';
 
 interface BOMDetailsModalProps {
   project: Project | null;
@@ -56,7 +56,7 @@ const BOMDetailsModal: React.FC<BOMDetailsModalProps> = ({ project, isOpen, onCl
               </label>
               <input
                 type="text"
-                value={project.projectType}
+                value={project.project_type}
                 readOnly
                 className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-700"
               />
@@ -68,7 +68,7 @@ const BOMDetailsModal: React.FC<BOMDetailsModalProps> = ({ project, isOpen, onCl
               </label>
               <input
                 type="text"
-                value={project.createdAt}
+                value={project.created_at}
                 readOnly
                 className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-700"
               />

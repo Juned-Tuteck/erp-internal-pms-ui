@@ -1,4 +1,4 @@
-import type { Project } from '../../utils/mockData';
+import type { Project } from '../../utils/api';
 
 interface ProjectTableProps {
   projects: Project[];
@@ -6,6 +6,7 @@ interface ProjectTableProps {
 }
 
 const ProjectTable: React.FC<ProjectTableProps> = ({ projects, onViewProject }) => {
+
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'Active':
@@ -19,6 +20,17 @@ const ProjectTable: React.FC<ProjectTableProps> = ({ projects, onViewProject }) 
       default:
         return 'bg-gray-100 text-gray-800';
     }
+  };
+
+  const formatDate = (dateStr?: string | null) => {
+    if (!dateStr) return '-';
+    const date = new Date(dateStr);
+    if (isNaN(date.getTime())) return dateStr;
+    return date.toLocaleDateString('en-IN', {
+      year: 'numeric',
+      month: 'short',
+      day: '2-digit',
+    });
   };
 
   return (
@@ -75,40 +87,40 @@ const ProjectTable: React.FC<ProjectTableProps> = ({ projects, onViewProject }) 
             {projects.map((project) => (
               <tr key={project.id} className="hover:bg-gray-50 transition-colors">
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  {project.projectNumber}
+                  {project.project_number}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  {project.projectName}
+                  {project.project_name}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-blue-600">
-                  {project.leadNumber}
+                  {project.lead_id}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  {project.projectType}
+                  {project.project_type}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  {project.customer}
+                  {project.customer_id}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  {project.createdAt}
+                  {formatDate(project.created_at)}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  {project.projectManager}
+                  {project.project_manager}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  {project.estStartDate}
+                  {formatDate(project.est_start_date)}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  {project.estEndDate}
+                  {formatDate(project.est_end_date)}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  {project.kickOffDate}
+                  {formatDate(project.kick_off_date)}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  {project.lastUpdated}
+                  {formatDate(project.last_updated)}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  {project.estPrice}
+                  {project.est_price}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <span

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getAllProjects } from '../../utils/api';
-import type { Project } from '../../utils/mockData';
+import type { Project } from '../../utils/api';
 import ProjectTable from './ProjectTable';
 import TaskDetailsModal from '../../components/Modals/TaskDetailsModal';
 
@@ -26,6 +26,7 @@ const AllProjects = () => {
       try {
         setLoading(true);
         const data = await getAllProjects();
+        console.log('Fetched projects:', data);
         setProjects(data);
       } catch (error) {
         console.error('Error fetching projects:', error);
@@ -39,9 +40,10 @@ const AllProjects = () => {
 
   const filteredProjects = projects.filter((project) =>
     Object.values(project).some((value) =>
-      value.toString().toLowerCase().includes(searchTerm.toLowerCase())
+      (value ?? '').toString().toLowerCase().includes(searchTerm.toLowerCase())
     )
   );
+  console.log('Filtered projects:', filteredProjects);
 
   return (
     <div className="p-6">

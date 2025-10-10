@@ -1,4 +1,4 @@
-import type { Project } from '../../utils/mockData';
+import type { Project } from '../../utils/api';
 
 interface CustomerDetailsModalProps {
   project: Project | null;
@@ -37,7 +37,7 @@ const CustomerDetailsModal: React.FC<CustomerDetailsModalProps> = ({ project, is
               </label>
               <input
                 type="text"
-                value={project.customer}
+                value={project.customer_id}
                 readOnly
                 className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-700"
               />

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { Project } from '../../utils/mockData';
+import type { Project } from '../../utils/api';
 import LeadDetailsModal from './LeadDetailsModal';
 import CustomerDetailsModal from './CustomerDetailsModal';
 import BOMDetailsModal from './BOMDetailsModal';
@@ -46,7 +46,7 @@ const TaskDetailsModal: React.FC<TaskDetailsModalProps> = ({ project, isOpen, on
                 </label>
                 <input
                   type="text"
-                  value={project.projectName}
+                  value={project.project_name}
                   readOnly
                   className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-700"
                 />
@@ -58,7 +58,7 @@ const TaskDetailsModal: React.FC<TaskDetailsModalProps> = ({ project, isOpen, on
                 </label>
                 <input
                   type="text"
-                  value={project.estPrice}
+                  value={project.est_price}
                   readOnly
                   className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-700"
                 />
