@@ -116,19 +116,19 @@ const TaskDetailsModal: React.FC<TaskDetailsModalProps> = ({ project, isOpen, on
             <div className="pt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
               <button
                 onClick={() => setShowLeadModal(true)}
-                className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors font-semibold"
+                className="bg-[#DBEAFE] text-[#2563EB] px-6 py-3 rounded-md hover:bg-blue-200 transition-colors font-semibold"
               >
                 VIEW LEAD DETAILS
               </button>
               <button
                 onClick={() => setShowCustomerModal(true)}
-                className="bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700 transition-colors font-semibold"
+                className="bg-[#DBEAFE] text-[#2563EB] px-6 py-3 rounded-md hover:bg-blue-200 transition-colors font-semibold"
               >
                 VIEW CUSTOMER DETAILS
               </button>
               <button
                 onClick={() => setShowBOMModal(true)}
-                className="bg-orange-600 text-white px-6 py-3 rounded-md hover:bg-orange-700 transition-colors font-semibold"
+                className="bg-[#DBEAFE] text-[#2563EB] px-6 py-3 rounded-md hover:bg-blue-200 transition-colors font-semibold"
               >
                 VIEW BOM DETAILS
               </button>
